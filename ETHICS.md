@@ -4,7 +4,7 @@
 
 [![Deon badge](https://img.shields.io/badge/ethics%20checklist-deon-brightgreen.svg?style=popout-square)](http://deon.drivendata.org/)
 
-## A. Data Collection
+### A. Data Collection
  - [X] **A.1 Informed consent**: If there are human subjects, have they given informed consent, where subjects affirmatively opt-in and have a clear understanding of the data uses to which they consent?
     - This project uses publicly available, aggregated country level data collected by international organizations. No individual level data or human subjects are directly involved, so informed consent is not applicable.
  - [X] **A.2 Collection bias**: Have we considered sources of bias that could be introduced during data collection and survey design and taken steps to mitigate those?
@@ -14,13 +14,13 @@
  - [X] **A.4 Downstream bias mitigation**: Have we considered ways to enable testing downstream results for biased outcomes (e.g., collecting data on protected group status like race or gender)?
     - We explicitly include GDP per capita to examine differences across income groups, which helps identify potentially unequal impacts.
 
-## B. Data Storage
+### B. Data Storage
  - [X] **B.1 Data security**: Do we have a plan to protect and secure data (e.g., encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software)?
     - The data are publicly available and non-sensitive. They will be stored locally in CSV format for analysis.
  - [ ] **B.2 Right to be forgotten**: Do we have a mechanism through which an individual can request their personal information be removed?
  - [ ] **B.3 Data retention plan**: Is there a schedule or plan to delete the data after it is no longer needed?
 
-## C. Analysis
+### C. Analysis
  - [X] **C.1 Missing perspectives**: Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g., checking assumptions and discussing implications with affected communities and subject matter experts)?
     - We recognize that country level data cannot adequately capture inequalitues or lived experiences of affected communities and groups within said country. We will discuss these limitations when interpreting results.
  - [X] **C.2 Dataset bias**: Have we examined the data for possible sources of bias and taken steps to mitigate or address these biases (e.g., stereotype perpetuation, confirmation bias, imbalanced classes, or omitted confounding variables)?
@@ -30,20 +30,27 @@
  - [X] **C.4 Privacy in analysis**: Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
     - No PII is used or displayed at anay stage of the analysis.
  - [X] **C.5 Auditability**: Is the process of generating the analysis well documented and reproducible if we discover issues in the future?
-    - All data cleaning nd analysis will be documented in a reproducible manner via Jupyter notebook. 
+    - All data cleaning and analysis will be documented in a reproducible manner via Jupyter notebook. 
 
-## D. Modeling
- - [ ] **D.1 Proxy discrimination**: Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
- - [ ] **D.2 Fairness across groups**: Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
- - [ ] **D.3 Metric selection**: Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
- - [ ] **D.4 Explainability**: Can we explain in understandable terms a decision the model made in cases where a justification is needed?
+### D. Modeling
+ - [X] **D.1 Proxy discrimination**: Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
+    - We ensured that the model does not rely on discriminatory proxies by using country-level variables adjusted for population size, like CO2 emissions per capita and GDP per capita. However, we recognize that these values may reflect historical inequalities, and thus interpret our results with this potential bias in mind.
+ - [X] **D.2 Fairness across groups**: Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
+    - We will evaluate fairness by comparing model performance across low-income and high-income countries to ensure that error rates are not systematically higher for one group. This will ensure that the model performs equitably across countries oof varying economic contexts.
+ - [X] **D.3 Metric selection**: Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
+    - We considered that optimizing our model for overall regression could overlook differences across income groups or population sizes. Thus, we are evaluating based on country income and using variables that account for population variation.
+ - [X] **D.4 Explainability**: Can we explain in understandable terms a decision the model made in cases where a justification is needed?
+    - Yes, we are breaking down groups into subgroups based on income and population size to ensure easier evaluation, reducing the chance of proxies and ultimately, confusion in correlation and causation.
  - [X] **D.5 Communicate bias**: Have we communicated the shortcomings, limitations, and biases of the model to relevant stakeholders in ways that can be generally understood?
     - We will clearly communicate dataset limitations, potential biases, and uncertainties in the final report and discussion.
 
-## E. Deployment
- - [ ] **E.1 Redress**: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
+### E. Deployment
+ - [X] **E.1 Redress**: Have we discussed with our organization a plan for response if users are harmed by the results (e.g., how does the data science team evaluate these cases and update analysis and models to prevent future harm)?
+    - We will ensure that model results are not used to unfairly judge or stigmatize any country. This research is based on factual data and intended to gain a better understanding of how economic status relates to climate vulnerability.  
  - [ ] **E.2 Roll back**: Is there a way to turn off or roll back the model in production if necessary?
- - [ ] **E.3 Concept drift**: Do we test and monitor for concept drift to ensure the model remains fair over time?
- - [ ] **E.4 Unintended use**: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
+ - [X] **E.3 Concept drift**: Do we test and monitor for concept drift to ensure the model remains fair over time?
+    - We monitor the model for the concept of drift by utilizing variables that account for historical inequality and differences in population size, regulating the potential of drift. 
+ - [X] **E.4 Unintended use**: Have we taken steps to identify and prevent unintended uses and abuse of the model and do we have a plan to monitor these once the model is deployed?
+    - To prevent misuse, we provide context for interpretation, limit claims to factual insights, and plan to monitor how results are communicated and applied based on applied citations in papers. 
 
 *Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*
