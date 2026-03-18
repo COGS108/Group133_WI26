@@ -22,13 +22,13 @@
 
 ### C. Analysis
  - [X] **C.1 Missing perspectives**: Have we sought to address blindspots in the analysis through engagement with relevant stakeholders (e.g., checking assumptions and discussing implications with affected communities and subject matter experts)?
-    - We recognize that country level data cannot adequately capture inequalitues or lived experiences of affected communities and groups within said country. We will discuss these limitations when interpreting results.
+    - We recognize that country level data cannot adequately capture inequalities or lived experiences of affected communities and groups within said country. We will discuss these limitations when interpreting results.
  - [X] **C.2 Dataset bias**: Have we examined the data for possible sources of bias and taken steps to mitigate or address these biases (e.g., stereotype perpetuation, confirmation bias, imbalanced classes, or omitted confounding variables)?
     - We will examine missing data patterns and reporting differences across countries and explicitly frame results as correlational rather than causal.
  - [X] **C.3 Honest representation**: Are our visualizations, summary statistics, and reports designed to honestly represent the underlying data?
     - Visualizations and summary statistics will use approproiate scales and labels to avoid misleading representations and/or results.
  - [X] **C.4 Privacy in analysis**: Have we ensured that data with PII are not used or displayed unless necessary for the analysis?
-    - No PII is used or displayed at anay stage of the analysis.
+    - No PII is used or displayed at any stage of the analysis.
  - [X] **C.5 Auditability**: Is the process of generating the analysis well documented and reproducible if we discover issues in the future?
     - All data cleaning and analysis will be documented in a reproducible manner via Jupyter notebook. 
 
@@ -36,7 +36,7 @@
  - [X] **D.1 Proxy discrimination**: Have we ensured that the model does not rely on variables or proxies for variables that are unfairly discriminatory?
     - We ensured that the model does not rely on discriminatory proxies by using country-level variables adjusted for population size, like CO2 emissions per capita and GDP per capita. However, we recognize that these values may reflect historical inequalities, and thus interpret our results with this potential bias in mind.
  - [X] **D.2 Fairness across groups**: Have we tested model results for fairness with respect to different affected groups (e.g., tested for disparate error rates)?
-    - We will evaluate fairness by comparing model performance across low-income and high-income countries to ensure that error rates are not systematically higher for one group. This will ensure that the model performs equitably across countries oof varying economic contexts.
+    - We will evaluate fairness by comparing model performance across low-income and high-income countries to ensure that error rates are not systematically higher for one group. This will ensure that the model performs equitably across countries of varying economic contexts.
  - [X] **D.3 Metric selection**: Have we considered the effects of optimizing for our defined metrics and considered additional metrics?
     - We considered that optimizing our model for overall regression could overlook differences across income groups or population sizes. Thus, we are evaluating based on country income and using variables that account for population variation.
  - [X] **D.4 Explainability**: Can we explain in understandable terms a decision the model made in cases where a justification is needed?
