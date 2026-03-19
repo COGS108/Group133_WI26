@@ -48,7 +48,7 @@ across 164 countries and 1,932 country-year observations.
 
 A core contribution of this project is the **Inequality Ratio** metric:
 
-$$\text{Inequality Ratio} = \frac{\text{Disaster Deaths \& Missing per 100k}}{\text{CO}_2 \text{ Tons per Capita}}$$
+$$\text{Inequality Ratio} = \frac{\text{Disaster Deaths and Missing per 100k}}{\text{CO}_2 \text{ Tons per Capita}}$$
 
 This normalizes disaster impact against emissions responsibility, enabling 
 apples-to-apples comparison across countries with vastly different economic profiles. 
